@@ -19,16 +19,8 @@
   }
 }
 
-div#about.home {
-  background: url("../images/about.jpg");
-  @include bg;
-}
 div#blog.home {
   background: url("../images/blog.jpg");
-  @include bg;
-}
-div#contact.home {
-  background: url("../images/contact.jpg");
   @include bg;
 }
 div#index.home {
@@ -40,7 +32,7 @@ div#rooms.home {
   background: url("../images/rooms.jpg");
   @include bg;
 }
-div#eachroom.home{
+div#eachroom.home {
   background: url("../images/rooms.jpg");
   @include bg;
 }

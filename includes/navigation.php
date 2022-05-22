@@ -7,9 +7,12 @@
             <div class="header__right">
                 <!-- Navigation -->
                 <nav class="navigation">
+
                     <ul class="navigation__list">
+                        <a class="navigation__link navigation__burger navigation__burger-open"><i class="gg-menu-right-alt"></i></a>
+                        <a class="navigation__link navigation__burger navigation__burger-close"><i class="fa-solid fa-xmark"></i></a>
                         <li class="navigation__listitem">
-                            <a href="<?php if ($filename != 'index') echo '../' ?>index" class="navigation__link">Home</a>
+                            <a href="<?php if ($filename != 'index') echo '../' ?>" class="navigation__link">Home</a>
                         </li>
                         <li class="navigation__listitem">
                             <a href="<?php if ($filename == 'index') echo 'pages/' ?>rooms" class="navigation__link">Rooms</a>
@@ -20,14 +23,12 @@
                         <button class="btn btn-hover navigation__button" onclick="window.location.href = '<?php if ($filename == 'index') echo 'pages/' ?>rooms'">
                             Book Online
                         </button>
-                        <a class="navigation__link navigation__burger" href="#"><i class="gg-menu-right-alt"></i></a>
                     </ul>
                 </nav>
             </div>
         </div>
 
     </div>
-
 </header>
 <!-- Main background -->
 <div class="home" id='<?php echo $filename ?>'>

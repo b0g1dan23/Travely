@@ -341,12 +341,9 @@ input {
         align-items: center;
         justify-content: baseline; } }
   .bookit__item {
-    background-image: url("../images/booking_1.jpg");
     height: 56.9rem;
     width: 35rem;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -358,12 +355,16 @@ input {
         .bookit__item:not(:last-child) {
           margin-right: 0;
           margin-bottom: 3rem; } }
-    .bookit__item:nth-child(2) {
-      background-image: url("../images/booking_2.jpg"); }
-    .bookit__item:nth-child(3) {
-      background-image: url("../images/booking_3.jpg"); }
     .bookit__item:hover {
       box-shadow: inset 0 0 0 2000px rgba(15, 14, 36, 0.72); }
+  .bookit__img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1; }
   .bookit__price {
     display: flex; }
   .bookit__p {
@@ -382,6 +383,9 @@ input {
   border-bottom: 2px solid #f2f2f2; }
   .blogs__content {
     display: flex; }
+    @media only screen and (max-width: 425px) {
+      .blogs__content {
+        flex-direction: column; } }
   .blogs__items {
     margin-right: 2rem; }
   .blogs__sidebar {
@@ -468,9 +472,9 @@ input {
   .blogs__img {
     position: relative; }
     .blogs__img img {
-      width: 862px;
-      object-fit: cover;
-      height: 377px; }
+      width: 100%;
+      aspect-ratio: 16/9;
+      object-fit: cover; }
   .blogs__date {
     position: absolute;
     top: 3.6rem;
@@ -488,32 +492,51 @@ input {
   list-style-type: none;
   display: flex;
   align-items: center; }
+  @media only screen and (max-width: 525px) {
+    .navigation__list {
+      flex-direction: column;
+      padding-top: 2rem;
+      background-color: transparent;
+      transition: background-color 0.5s linear; } }
 
 .navigation__listitem {
   margin-right: 5rem;
   font-size: 1.6rem; }
+  @media only screen and (max-width: 525px) {
+    .navigation__listitem {
+      padding: 4rem;
+      margin-right: -200%;
+      transition: margin-right 0.5s linear; } }
 
 .navigation__link {
   color: #fff;
   text-decoration: none;
   transition: all 0.2s; }
-  .navigation__link-active {
+  .navigation__link-active, .navigation__link:hover {
     color: #fe5f55; }
-  .navigation__link:hover {
-    color: #fe5f55; }
-  @media only screen and (max-width: 768px) {
-    .navigation__link {
-      display: none; } }
+    @media only screen and (max-width: 525px) {
+      .navigation__link-active, .navigation__link:hover {
+        color: #fff; } }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 525px) {
   .navigation__button {
     display: none; } }
 
 .navigation__burger {
   display: none; }
-  @media only screen and (max-width: 768px) {
+  @media only screen and (max-width: 525px) {
     .navigation__burger {
-      display: contents; } }
+      display: contents;
+      order: 1;
+      color: #fff;
+      cursor: pointer; } }
+  .navigation__burger:focus, .navigation__burger:hover {
+    color: #fff; }
+  .navigation__burger-close {
+    font-size: 3.2rem;
+    position: absolute;
+    top: 1.3rem;
+    display: none; }
 
 .header__content {
   background-color: transparent;
@@ -525,9 +548,10 @@ input {
   width: 100%;
   padding: 2rem 6.2rem;
   z-index: 10; }
-  @media only screen and (max-width: 425px) {
+  @media only screen and (max-width: 525px) {
     .header__content {
-      justify-content: center; } }
+      padding: 0;
+      align-items: flex-start; } }
 
 .header__logo {
   display: flex;
@@ -547,11 +571,15 @@ input {
   .header__link:hover {
     background-color: #f2f2f2;
     color: #393939; }
+  @media only screen and (max-width: 525px) {
+    .header__link {
+      margin-top: 2rem; } }
 
 .header__right {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  z-index: 100; }
 
 .sticky {
   background-color: #393939;
@@ -643,20 +671,8 @@ input {
       display: flex;
       flex-direction: column; } }
 
-div#about.home {
-  background: url("../images/about.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center; }
-
 div#blog.home {
   background: url("../images/blog.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center; }
-
-div#contact.home {
-  background: url("../images/contact.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -742,61 +758,36 @@ div#two.half__text {
   padding-right: 9.5rem;
   padding-left: 6.7rem; }
 
-.contact {
-  display: flex;
-  height: 100vh;
-  border-bottom: 2px solid #f2f2f2; }
-  .contact__left {
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    text-align: left; }
-  .contact__right {
-    width: 50%; }
-  .contact__street {
-    margin-top: 5.8rem; }
-  .contact__ul {
-    list-style: none; }
-  .contact__li {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #6d6d6d; }
-    .contact__li:not(:last-child) {
-      margin-bottom: 1.7rem; }
-  .contact__form {
-    margin-top: 7.3rem;
-    display: block; }
-  .contact__row {
-    display: flex; }
-  .contact__input {
-    padding: 0 1.5rem;
-    margin-bottom: 0.5rem; }
-  .contact__input input {
-    width: 100%;
-    height: 6.4rem;
-    border-bottom: 2px solid #393939;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #393939; }
-  .contact__input input[type="submit"] {
-    border: none;
-    margin-top: 1.5rem;
-    width: 40%;
-    display: block;
-    color: #fff; }
-  .contact__textarea {
-    height: 13rem;
-    padding-top: 1.5rem;
-    width: 100%;
-    outline: none;
-    border: none;
-    border-bottom: 2px solid #393939;
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #393939;
-    resize: none; }
+.contact__input {
+  padding: 0 1.5rem;
+  margin-bottom: 0.5rem; }
+
+.contact__input input {
+  width: 100%;
+  height: 6.4rem;
+  border-bottom: 2px solid #393939;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #393939; }
+
+.contact__input input[type="submit"] {
+  border: none;
+  margin-top: 1.5rem;
+  width: 40%;
+  display: block;
+  color: #fff; }
+
+.contact__textarea {
+  height: 13rem;
+  padding-top: 1.5rem;
+  width: 100%;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid #393939;
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #393939;
+  resize: none; }
 
 .rooms {
   background-color: #f8f8f8; }

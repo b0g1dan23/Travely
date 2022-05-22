@@ -13,15 +13,23 @@ $room_res = mysqli_query($con, $room_query);
         <button class="rooms__carousel-button prev" data-carousel-button="prev">&lt;</button>
         <button class="rooms__carousel-button next" data-carousel-button="next">&gt;</button>
         <ul data-slides>
-            <li class="rooms__slide" data-active>
-                <img src="../images/hotel1.jpg" alt="Hotel">
-            </li>
-            <li class="rooms__slide">
-                <img src="../images/hotel2.jpg" alt="Hotel">
-            </li>
-            <li class="rooms__slide">
-                <img src="../images/hotel3.jpg" alt="Hotel">
-            </li>
+            <?php
+            $query = "SELECT `images` FROM `apartmani` WHERE `Promo?` = 1";
+            $res = mysqli_query($con, $query);
+            $index = 0;
+            while ($row = mysqli_fetch_assoc($res)) {
+                $slike = $row['images'];
+                $slike = preg_split("/\,/", $slike);
+                $prva = $slike[0];
+
+                $active = $index === 0 ? ' data-active' : '';
+                echo "
+                <li class='rooms__slide'$active>
+                    <img src='$prva' alt='Hotel'>
+                </li>";
+                $index++;
+            }
+            ?>
         </ul>
     </div>
     <div class="rooms__title">
@@ -30,11 +38,11 @@ $room_res = mysqli_query($con, $room_query);
     <div class="rooms__type">
         <ul class="rooms__type-ul">
             <li class="rooms__type-li">
-                <a href="#" class="rooms__type-a">&gt; Apartment</a>
+                <a href="?idHotela=1" class="rooms__type-a">&gt; Apartment</a>
                 <span class="span rooms__type-span">(<?php echo mysqli_num_rows($res) ?>)</span>
             </li>
             <li class="rooms__type-li">
-                <a href="#" class="rooms__type-a">&gt; Hotel Room</a>
+                <a href="?idHotela=0" class="rooms__type-a">&gt; Hotel Room</a>
                 <span class="span rooms__type-span">(<?php echo mysqli_num_rows($room_res) ?>)</span>
             </li>
         </ul>

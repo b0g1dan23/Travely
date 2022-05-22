@@ -10,8 +10,9 @@
     padding: 2rem 6.2rem;
     z-index: 10;
 
-    @media only screen and (max-width: 425px) {
-      justify-content: center;
+    @media only screen and (max-width: 525px) {
+      padding: 0;
+      align-items: flex-start;
     }
   }
 
@@ -35,12 +36,17 @@
       background-color: $color-light;
       color: $color-dark;
     }
+
+    @media only screen and (max-width: 525px) {
+      margin-top: 2rem;
+    }
   }
 
   &__right {
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 100;
   }
 }
 

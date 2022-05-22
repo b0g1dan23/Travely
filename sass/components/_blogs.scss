@@ -5,6 +5,10 @@
 
   &__content {
     display: flex;
+
+    @media only screen and (max-width: 425px) {
+      flex-direction: column;
+    }
   }
 
   &__items {
@@ -144,9 +148,9 @@
     position: relative;
 
     & img {
-      width: 862px;
+      width: 100%;
+      aspect-ratio: 16/9;
       object-fit: cover;
-      height: 377px;
     }
   }
 

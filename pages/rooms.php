@@ -19,7 +19,20 @@ if (isset($_GET['paralia']) && isset($_GET['adults']) && isset($_GET['children']
     $ap_query .= " AND maxOsobe >= $brojLjudi";
     $ap_query .= " AND brojSoba >= $rooms";
 }
-echo $ap_query;
+
+$roomHeading = 'Rooms';
+
+if (isset($_GET['idHotela'])) {
+    $type = $_GET['idHotela'];
+    if ($type) {
+        $ap_query .= " WHERE idHotela = 1";
+        $roomHeading = 'Hotel Rooms';
+    } else {
+        $ap_query .= " WHERE idHotela != 1";
+        $roomHeading = 'Apartments';
+    }
+}
+
 $res = mysqli_query($con, $ap_query);
 mysqli_num_rows($res) > 1 ? $mes = 'Properties' : $mes = 'Property';
 ?>
@@ -29,7 +42,7 @@ mysqli_num_rows($res) > 1 ? $mes = 'Properties' : $mes = 'Property';
         <div class="container">
 
             <div class="rooms__title">
-                <h2 class="h2 rooms__h2">Rooms</h2>
+                <h2 class="h2 rooms__h2"><?php echo $roomHeading ?></h2>
             </div>
             <div class="rooms__content">
                 <div class="rooms__left">

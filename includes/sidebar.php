@@ -74,14 +74,4 @@
             </ul>
         </div>
     </div>
-
-    <div class="blogs__special">
-        <div class="blogs__heading">
-            <h4 class="h4 blogs__text blogs__h4">Special Offer</h4>
-            <h5 class="h5 blogs__text blogs__h5">Family Room</h5>
-        </div>
-        <div class="blogs__button">
-            <button class="btn blogs__btn">Book now</button>
-        </div>
-    </div>
 </div>

@@ -12,6 +12,29 @@ const btnRooms = document.querySelectorAll(".dropdown_btn-rooms");
 const carouselBtns = document.querySelectorAll("[data-carousel-button]");
 const sortText = document.querySelector("[data-button-span]");
 const sortBtn = document.querySelectorAll(".rooms__sortic");
+const numOfSlides = document.querySelectorAll(".rooms__slide").length;
+const burgerMenuOpen = document.querySelector(".navigation__burger-open");
+const burgerMenuClose = document.querySelector(".navigation__burger-close");
+const list = document.querySelector(".navigation__list");
+const listItems = document.querySelectorAll(".navigation__listitem");
+
+burgerMenuOpen.addEventListener("click", () => {
+  listItems.forEach((item) => {
+    item.style.marginRight = "10%";
+  });
+  list.style.backgroundColor = "#fe5f55";
+  burgerMenuOpen.style.display = "none";
+  burgerMenuClose.style.display = "block";
+});
+
+burgerMenuClose.addEventListener("click", () => {
+  listItems.forEach((item) => {
+    item.style.marginRight = "-200%";
+  });
+  list.style.backgroundColor = "transparent";
+  burgerMenuOpen.style.display = "contents";
+  burgerMenuClose.style.display = "none";
+});
 
 btnAdults.forEach(addValues);
 btnChildren.forEach(addValues);
@@ -66,7 +89,7 @@ numbers.forEach((number) => {
 // Sticky header
 // On scroll, show header
 const setHeader = function () {
-  if (window.scrollY > 10) {
+  if (window.scrollY > 10 && window.innerWidth > 525) {
     header.classList.add("sticky");
     header.classList.remove("ease-out");
   } else {
@@ -88,6 +111,10 @@ navLinks.forEach((link) =>
 );
 
 // Carousel
+const showBtns = numOfSlides > 1;
+if (!showBtns) {
+  carouselBtns.forEach((btn) => (btn.style.display = "none"));
+}
 carouselBtns.forEach((button) => {
   button.addEventListener("click", () => {
     const offset = button.dataset.carouselButton === "next" ? 1 : -1;

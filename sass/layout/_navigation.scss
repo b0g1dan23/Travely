@@ -3,11 +3,25 @@
     list-style-type: none;
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: 525px) {
+      flex-direction: column;
+      padding-top: 2rem;
+      background-color: transparent;
+
+      transition: background-color 0.5s linear;
+    }
   }
 
   &__listitem {
     margin-right: 5rem;
     font-size: 1.6rem;
+
+    @media only screen and (max-width: 525px) {
+      padding: 4rem;
+      margin-right: -200%;
+      transition: margin-right 0.5s linear;
+    }
   }
 
   &__link {
@@ -15,21 +29,18 @@
     text-decoration: none;
     transition: all 0.2s;
 
-    &-active {
-      color: $color-main;
-    }
-
+    &-active,
     &:hover {
       color: $color-main;
-    }
 
-    @media only screen and (max-width: 768px) {
-      display: none;
+      @media only screen and (max-width: 525px) {
+        color: #fff;
+      }
     }
   }
 
   &__button {
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 525px) {
       display: none;
     }
   }
@@ -37,8 +48,23 @@
   &__burger {
     display: none;
 
-    @media only screen and (max-width: 768px) {
+    @media only screen and (max-width: 525px) {
       display: contents;
+      order: 1;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    &:focus,
+    &:hover {
+      color: #fff;
+    }
+
+    &-close {
+      font-size: 3.2rem;
+      position: absolute;
+      top: 1.3rem;
+      display: none;
     }
   }
 }

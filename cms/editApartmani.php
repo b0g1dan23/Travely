@@ -100,7 +100,7 @@ if (isset($_POST['btn_update'])) {
                 </label>
                 <select name="promo" class="apartmani__select">
                     <option value="1">Yes</option>
-                    <option value="0">No</option>
+                    <option value="0" <?php if (!$row['Promo?']) echo 'selected' ?>>No</option>
                 </select>
             </div>
             <div class="contact__input">
@@ -126,11 +126,11 @@ if (isset($_POST['btn_update'])) {
                     <?php
                     $query = 'SELECT `idVlasnika`, CONCAT(vlasnici.Ime, " " , vlasnici.Prezime) as Vlasnik FROM `vlasnici`';
                     $res = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $idVlasnika = $row['idVlasnika'];
-                        $vlasnik = $row['Vlasnik'];
+                    while ($row1 = mysqli_fetch_assoc($res)) {
+                        $idVlasnika = $row1['idVlasnika'];
+                        $vlasnik = $row1['Vlasnik'];
                     ?>
-                        <option value="<?php echo $idVlasnika ?>"><?php echo $vlasnik ?></option>
+                        <option value="<?php echo $idVlasnika ?>" <?php if ($idVlasnika === $row['idVlasnika']) echo 'selected' ?>><?php echo $vlasnik ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -142,11 +142,11 @@ if (isset($_POST['btn_update'])) {
                     <?php
                     $query = 'SELECT `idHotela`, `nazivHotela` FROM `hoteli`';
                     $res = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $idHotela = $row['idHotela'];
-                        $nazivHotela = $row['nazivHotela'];
+                    while ($row2 = mysqli_fetch_assoc($res)) {
+                        $idHotela = $row2['idHotela'];
+                        $nazivHotela = $row2['nazivHotela'];
                     ?>
-                        <option value="<?php echo $idHotela ?>"><?php echo $nazivHotela ?></option>
+                        <option value="<?php echo $idHotela ?>" <?php if ($idHotela === $row['idHotela']) echo 'selected' ?>><?php echo $nazivHotela ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -158,11 +158,11 @@ if (isset($_POST['btn_update'])) {
                     <?php
                     $query = 'SELECT `idGrada`, `nazivGrada` FROM `gradovi`';
                     $res = mysqli_query($con, $query);
-                    while ($row = mysqli_fetch_assoc($res)) {
-                        $idGrada = $row['idGrada'];
-                        $nazivGrada = $row['nazivGrada'];
+                    while ($row3 = mysqli_fetch_assoc($res)) {
+                        $idGrada = $row3['idGrada'];
+                        $nazivGrada = $row3['nazivGrada'];
                     ?>
-                        <option value="<?php echo $idGrada ?>"><?php echo $nazivGrada ?></option>
+                        <option value="<?php echo $idGrada ?>" <?php if ($idGrada === $row['idGrada']) echo 'selected' ?>><?php echo $nazivGrada ?></option>
                     <?php } ?>
                 </select>
             </div>

@@ -1,5 +1,6 @@
 <?php include "includes/header.php" ?>
 <?php include "includes/navigation.php" ?>
+<?php include "includes/dbconfig.php" ?>
 
 
 
@@ -77,24 +78,28 @@
             </p>
         </div>
         <div class="bookit__rooms">
-            <div class="bookit__item">
-                <div class="bookit__price">
-                    <p class="p bookit__p">$120/Night</p>
+            <?php
+            $query = "SELECT `idApartmana`,`nazivApartmana`,`cena`, `images` FROM `apartmani` LIMIT 3";
+            $res = mysqli_query($con, $query);
+            while ($row = mysqli_fetch_assoc($res)) {
+                $cena = $row['cena'];
+                $id = $row['idApartmana'];
+                $naziv = $row['nazivApartmana'];
+                $slike = $row['images'];
+                $slike = preg_split("/\,/", $slike);
+                $prva = $slike[0];
+                if (strpos('../', $prva) + 1) {
+                    $prva = str_replace('../', '', $prva);
+                }
+                echo "<div class='bookit__item'>
+                    <img class='bookit__img' src='$prva' alt='Hotel'>
+                <div class='bookit__price'>
+                    <p class='p bookit__p'>$$cena/day</p>
                 </div>
-                <button class="btn bookit__btn">Standard Room</button>
-            </div>
-            <div class="bookit__item">
-                <div class="bookit__price">
-                    <p class="p bookit__p">$120/Night</p>
-                </div>
-                <button class="btn bookit__btn">Premium Room</button>
-            </div>
-            <div class="bookit__item">
-                <div class="bookit__price">
-                    <p class="p bookit__p">$120/Night</p>
-                </div>
-                <button class="btn bookit__btn">Deluxe Room</button>
-            </div>
+                    <button class='btn bookit__btn'>$naziv</button>
+                </div>";
+            }
+            ?>
         </div>
     </div>
 </section>
