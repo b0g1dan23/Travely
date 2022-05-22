@@ -1,0 +1,82 @@
+.about {
+  padding: 10.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__left {
+    @include flex-column;
+    justify-content: center;
+    float: left;
+  }
+
+  &__right {
+    margin-left: 4rem;
+  }
+
+  &__heading {
+    margin-bottom: 0.8rem;
+  }
+  &__text {
+    margin-top: 2.1rem;
+    margin-right: 1.5rem;
+    width: 80ch;
+  }
+}
+
+.half {
+  width: 100%;
+  display: flex;
+
+  &__img {
+    background-image: url("../images/milestones.jpg");
+    @include bg;
+    width: 50%;
+  }
+
+  &__text {
+    width: 50%;
+    padding-top: 11.2rem;
+    padding-left: 6.7rem;
+    padding-bottom: 7.7rem;
+    padding-right: 13rem;
+  }
+
+  &__heading {
+    margin-bottom: 0.8rem;
+
+    &-h2 {
+      font-size: 7.2rem;
+    }
+  }
+
+  &__paragraph {
+    margin-top: 2rem;
+    width: 86ch;
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8.4rem;
+    padding-left: 1rem;
+    margin-bottom: 6rem;
+  }
+
+  &__services,
+  &__peoples,
+  &__satisfaction {
+    text-align: center;
+  }
+}
+
+div#two.half__img {
+  background-image: url("../images/loaders.jpg");
+  @include bg;
+}
+div#two.half__text {
+  padding-bottom: 12rem;
+  padding-top: 11.6rem;
+  padding-right: 9.5rem;
+  padding-left: 6.7rem;
+}

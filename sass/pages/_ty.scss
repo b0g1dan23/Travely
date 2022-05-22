@@ -1,0 +1,27 @@
+.ty{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &-content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    & h1{
+        color: black;
+    }
+
+    & i{
+        font-size: 14rem;
+        color: $color-main;
+    }
+
+    & a{
+        color: $color-main;
+    }
+}

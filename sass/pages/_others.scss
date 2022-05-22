@@ -1,0 +1,46 @@
+.home {
+  @include overlay;
+  width: 100%;
+  height: 58.8rem;
+  @include flex-column;
+  justify-content: center;
+  align-items: center;
+
+  &__h1 {
+    font-size: 7.2rem;
+    margin-bottom: 3.4rem;
+  }
+
+  &__form {
+    @media only screen and (max-width: 425px) {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}
+
+div#about.home {
+  background: url("../images/about.jpg");
+  @include bg;
+}
+div#blog.home {
+  background: url("../images/blog.jpg");
+  @include bg;
+}
+div#contact.home {
+  background: url("../images/contact.jpg");
+  @include bg;
+}
+div#index.home {
+  background: url("../images/index_1.jpg");
+  @include bg;
+  height: 100vh;
+}
+div#rooms.home {
+  background: url("../images/rooms.jpg");
+  @include bg;
+}
+div#eachroom.home{
+  background: url("../images/rooms.jpg");
+  @include bg;
+}

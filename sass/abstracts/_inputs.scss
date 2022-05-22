@@ -1,0 +1,86 @@
+.base_input {
+  font-size: 1.4rem;
+  padding: 2rem;
+  height: 6rem;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: rgba($color: #fff, $alpha: 0.28);
+  &:not(:last-child) {
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &::placeholder {
+    color: #fff;
+    opacity: 1;
+  }
+
+  &:focus::placeholder {
+    color: transparent;
+  }
+
+  &:-ms-input-placeholder {
+    color: #fff;
+  }
+
+  &-button {
+    cursor: pointer;
+  }
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+
+  &-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 130%;
+    -webkit-box-shadow: 14px 14px 23px 3px rgba(0, 0, 0, 0.29);
+    box-shadow: 14px 14px 23px 3px rgba(0, 0, 0, 0.29);
+    z-index: 1;
+  }
+
+  &_ul {
+    list-style-type: none;
+  }
+  &_li {
+    color: black;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+  &_btn {
+    font-size: 1.6rem;
+    color: $color-main;
+    padding: 0.5rem;
+    border: 1px solid $color-main;
+    &-box {
+      outline: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  &_span {
+    &-right {
+      margin: 0 1rem;
+    }
+  }
+  &_a {
+    color: black;
+  }
+}
+
+.show {
+  display: block;
+}
+div.dropdown-content#rooms {
+  width: 100%;
+}

@@ -1,0 +1,21 @@
+$color-main: #fe5f55;
+$color-light: #f2f2f2;
+$color-light-prljava: #f8f8f8;
+$color-darker-light: #abaaaa;
+$color-dark: #393939;
+$color-light-dark: #6d6d6d;
+
+@mixin bg {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+@mixin overlay {
+  box-shadow: inset 0 0 0 2000px rgba(#0f0e24, 0.72);
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}

@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  line-height: 1.2;
+  -webkit-font-smoothing: antialiased;
+  color: $color-dark;
+  font-weight: 600;
+}
+
+.h1 {
+  font-size: 7.2rem;
+  color: #fff;
+}
+
+.p {
+  color: $color-light-dark;
+  font-size: 1.5rem;
+  line-height: 2;
+  font-weight: 200;
+  text-shadow: rgb(0, 0, 0 / 1%) 0 0 1px;
+}
+
+.h2 {
+  font-size: 3.6rem;
+}
+
+.h3 {
+  font-size: 2.4rem;
+}
+
+.h4 {
+  font-size: 1.8rem;
+}
+
+.h5 {
+  font-size: 1.4rem;
+}
+
+.span {
+  font-size: 1.5rem;
+  color: $color-light-dark;
+  line-height: 2;
+  font-weight: 500;
+
+  &-bold{
+    color: #000;
+    font-weight: 700;
+    font-size: 2.4rem;
+    line-height: 2;
+  }
+}

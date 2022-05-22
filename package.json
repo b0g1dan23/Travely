@@ -1,0 +1,14 @@
+{
+  "name": "smisli",
+  "version": "1.0.0",
+  "description": "booking application",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Bogdan Stevanovic",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^7.0.1"
+  }
+}

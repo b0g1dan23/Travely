@@ -1,0 +1,44 @@
+.navigation {
+  &__list {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+  }
+
+  &__listitem {
+    margin-right: 5rem;
+    font-size: 1.6rem;
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+
+    &-active {
+      color: $color-main;
+    }
+
+    &:hover {
+      color: $color-main;
+    }
+
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__button {
+    @media only screen and (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__burger {
+    display: none;
+
+    @media only screen and (max-width: 768px) {
+      display: contents;
+    }
+  }
+}

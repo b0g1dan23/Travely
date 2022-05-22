@@ -1,0 +1,108 @@
+.footer {
+  padding-top: 8.1rem;
+
+  &__content {
+    padding-bottom: 5.2rem;
+  }
+
+  &__logo {
+    text-align: center;
+
+    &-down {
+      text-align: center;
+      margin-top: 1.5rem;
+      pointer-events: none;
+    }
+  }
+
+  &__link {
+    background-color: #fff;
+    border: 3px solid $color-dark;
+    color: $color-dark;
+    font-size: 4.3rem;
+    line-height: 6.8rem;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in;
+
+    &:hover {
+      background-color: $color-dark;
+      color: #fff;
+    }
+
+    &-down {
+      font-size: 1.6rem;
+      color: $color-dark;
+      font-weight: 600;
+    }
+  }
+
+  &__down {
+    width: 100%;
+    display: flex;
+    margin-top: 7.4rem;
+    justify-content: space-evenly;
+
+    & div {
+      width: 100%;
+    }
+
+    @media only screen and (max-width: 425px) {
+      flex-direction: column;
+      align-items: baseline;
+      justify-content: center;
+    }
+  }
+
+  &__address,
+  &__reservations,
+  &__newsletter,
+  &__newsletter form,
+  &__list {
+    @include flex-column;
+  }
+
+  &__address,
+  &__reservations,
+  &__newsletter {
+    padding: 0 1.5rem;
+  }
+
+  &__list {
+    margin-top: 0.9rem;
+  }
+
+  &__newsletter form {
+    margin-top: 0.8rem;
+  }
+
+  &__btn {
+    margin-top: 2.3rem;
+  }
+
+  &__input {
+    width: 100%;
+    height: 6.4rem;
+    background-color: #fff;
+    border-bottom: 2px solid $color-dark;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-dark;
+
+    &::placeholder {
+      font-weight: 400;
+    }
+
+    &:-ms-input-placeholder {
+      font-weight: 400;
+    }
+
+    &::-ms-input-placeholder {
+      font-weight: 400;
+    }
+  }
+
+  &__span {
+    width: 100%;
+  }
+}

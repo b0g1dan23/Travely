@@ -1,0 +1,114 @@
+.admin {
+  &__side {
+    height: 100vh;
+    // background-color: orangered;
+    position: fixed;
+  }
+  &__top {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    background: #f85032; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      $color-main,
+      #f85032
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      $color-main,
+      #f85032
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    padding: 1rem 2rem;
+
+    &-name {
+      display: flex;
+      text-align: center;
+      flex-direction: column;
+      & > span {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: $color-light-prljava;
+      }
+    }
+  }
+  &__img {
+    border-radius: 50%;
+    width: 7rem;
+    height: 7rem;
+  }
+  &__ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & > a {
+      color: $color-dark;
+      display: block;
+      text-align: center;
+      width: 100%;
+      padding: 1rem;
+
+      &:hover {
+        background: #f85032; /* fallback for old browsers */
+        background: -webkit-linear-gradient(
+          to right,
+          $color-main,
+          #f85032
+        ); /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(
+          to right,
+          $color-main,
+          #f85032
+        ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        color: $color-light-prljava;
+      }
+    }
+  }
+  &__content {
+    float: right;
+    background-color: $color-light-prljava;
+  }
+  &__td {
+    background-color: $color-main;
+  }
+  &__akcije {
+    color: #fff;
+  }
+}
+
+.apartmani {
+  padding: 5rem;
+  &__tekst {
+    display: flex;
+    justify-content: space-between;
+    & > button {
+      border-radius: 2rem;
+    }
+  }
+  &__table {
+    margin-top: 2rem;
+    color: $color-dark;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    border-collapse: collapse;
+    & th,
+    & td,
+    & tr {
+      border: 1px solid #000;
+      padding: 2rem;
+    }
+  }
+  &__form {
+    margin-top: 5rem;
+
+    & .contact__input input {
+      background-color: transparent;
+    }
+  }
+
+  &__select {
+    margin: 3rem 2rem;
+  }
+}

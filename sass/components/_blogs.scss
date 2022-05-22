@@ -1,0 +1,168 @@
+.blogs {
+  padding-top: 8.2rem;
+  padding-bottom: 11rem;
+  border-bottom: 2px solid $color-light;
+
+  &__content {
+    display: flex;
+  }
+
+  &__items {
+    margin-right: 2rem;
+  }
+
+  &__sidebar {
+    padding-top: 4.1rem;
+  }
+
+  &__search form {
+    display: flex;
+  }
+
+  &__recent {
+    margin-top: 5.7rem;
+  }
+
+  &__list {
+    margin-top: 5rem;
+    padding-left: 2.4rem;
+  }
+
+  &__ul {
+    &-random {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__li {
+    &:not(:last-child) {
+      margin-bottom: 1.4rem;
+    }
+
+    &-random {
+      margin-bottom: 1.4rem;
+      display: block;
+      &:not(:last-child) {
+        margin-right: 4rem;
+      }
+    }
+  }
+
+  &__a {
+    color: $color-light-dark;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: $color-main;
+    }
+
+    &-random {
+      color: $color-light-dark;
+      font-size: 1.5rem;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      &:hover {
+        color: $color-main;
+      }
+    }
+  }
+
+  &__special {
+    width: 100%;
+    max-width: 26.4rem;
+    height: 38.7rem;
+    margin-top: 7.4rem;
+    background-image: url("../images/special_offer.jpg");
+    @include bg;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    padding-top: 5.6rem;
+  }
+
+  &__text {
+    color: $color-light;
+  }
+
+  &__h4 {
+    font-size: 3rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+
+  &__h5 {
+    font-size: 2.4rem;
+    font-weight: 500;
+    margin-top: 0.6rem;
+    line-height: 1.2;
+  }
+
+  &__btn {
+    margin-bottom: 2.6rem;
+  }
+
+  &__items {
+    padding: 0 1.5rem;
+  }
+
+  &__textcontent {
+    padding-top: 4.5rem;
+    padding-left: 6.4rem;
+    padding-bottom: 5.9rem;
+    padding-right: 7.5rem;
+  }
+
+  &__icons {
+    margin-top: 0.2rem;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__icons a {
+    color: $color-darker-light;
+    &:not(:last-child) {
+      margin-right: 2.1rem;
+    }
+    margin-bottom: 0.5rem;
+  }
+
+  &__paragraph {
+    margin-top: 1.6rem;
+  }
+
+  &__button {
+    margin-top: 4.2rem;
+  }
+
+  &__img {
+    position: relative;
+
+    & img {
+      width: 862px;
+      object-fit: cover;
+      height: 377px;
+    }
+  }
+
+  &__date {
+    position: absolute;
+    top: 3.6rem;
+    left: 3.6rem;
+    text-align: center;
+    background: $color-main;
+    padding: 0.1rem 1.5rem;
+  }
+
+  &__date a {
+    line-height: 2.6rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #fff;
+  }
+}

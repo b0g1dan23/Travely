@@ -1,0 +1,171 @@
+.eachroom{
+    padding-top: 4rem;
+    background-color: $color-light-prljava;
+
+    &__text{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+    }
+
+    &__carousel{
+        width: 100%;
+        height: 100vh;
+        position: relative;
+    }
+
+    &__content{
+        display: flex;
+        gap: 3rem;
+        margin-top: 3rem;
+        @media only screen and (max-width:425px) {
+            flex-direction: column;
+        }
+    }
+
+    &__left{
+        width: 70%;
+
+        & > div:not(:nth-child(1)){
+            margin: 2rem 0;
+        }
+
+        @media only screen and (max-width:425px) {
+            width: 100%;
+        }
+    }
+    &__overview{
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 3rem;
+        & hr{
+            margin: 2rem 0;
+            color: $color-light-prljava;
+        }
+
+        & > .p{
+            color: #222222;
+            font-size: 1.4rem;
+            font-weight: 200;
+            overflow-wrap: break-word;
+            margin-bottom: 1rem;
+        }
+
+        & > iframe{
+            width: 100%;
+            height: 50rem;
+            object-fit: cover;
+        }
+    }
+
+    &__boxes{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 2rem;
+    }
+
+    &__group{
+        padding: 0.5rem 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $color-darker-light;
+
+        & > .span-bold{
+            font-size: 1.6rem;
+        }
+    }
+
+    &__featurebox{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1rem;
+
+        
+    }
+
+    &__features{
+        text-align: center;
+        & > .span{
+            color: $color-main;
+            & i{
+                color: $color-dark;
+            }
+        }
+    }
+
+    &__apartmentypes{
+        margin-top: 2rem;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(3, 1fr);
+
+        @media only screen and (max-width:768px) {
+            grid-template-columns: repeat(2,1fr);
+        }
+    }
+
+    &__apartmentgroup{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+
+        & i{
+            color: $color-light-dark;
+        }
+
+        & > .span{
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+
+        & > .span-bold{
+            font-size: 1.8rem;
+        }
+    }
+
+    &__right{
+        flex: 1;
+
+        &-textupper{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        &-username{
+            & a{
+                color: $color-main;
+            }
+        }
+
+        &-form{
+            background-color: #fff;
+            padding-top: 3rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: column;
+
+            & input,& textarea{
+                width: 100%;
+                outline: none;
+                padding: 2rem;
+                border: 1px solid $color-light;
+                margin: 1rem 0;
+                font-size: 1.4rem;
+                border-radius: 0.8rem;
+            }
+
+            
+        }
+    }
+    &__userimg{
+        width: 7rem;
+        height: 7rem;
+    }
+
+}

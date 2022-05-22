@@ -1,0 +1,54 @@
+.header {
+  &__content {
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 2rem 6.2rem;
+    z-index: 10;
+
+    @media only screen and (max-width: 425px) {
+      justify-content: center;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    display: block;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: $color-light;
+    line-height: 3.7rem;
+    text-decoration: none;
+    border: 2px solid $color-light;
+    padding: 0 0.7rem;
+    transition: all 0.3s ease-in;
+    &:hover {
+      background-color: $color-light;
+      color: $color-dark;
+    }
+  }
+
+  &__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.sticky {
+  background-color: $color-dark;
+  transition: all 0.3s ease-in;
+}
+
+.ease-out {
+  transition: all 0.3s ease-out;
+}

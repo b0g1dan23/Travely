@@ -1,0 +1,49 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+
+  @media only screen and (max-width: 992px) {
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    font-size: 44%;
+  }
+
+  @media only screen and (max-width: 425px) {
+    font-size: 42%;
+  }
+}
+
+body {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+  color: #fff;
+  background: #fff;
+}
+
+::-moz-selection {
+  /* Code for Firefox */
+  background: $color-main;
+  color: #fff;
+}
+
+::selection {
+  background: $color-main;
+  color: #fff;
+}
+
+input {
+  border: none;
+  outline: none;
+}
