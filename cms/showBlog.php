@@ -4,12 +4,12 @@ include "includes/admin_side.php";
 include "../includes/dbconfig.php";
 include "funkcije.php";
 
-$query = 'SELECT `id_blog`, `blog_heading` FROM `blogs`';
+$query = 'SELECT `id_blog`, `naslov` FROM `blogovi`';
 $res = mysqli_query($con, $query);
 
 if (isset($_GET['id'])) {
     $idBloga = $_GET['id'];
-    delData($con, $idBloga, 'idBloga', 'blogs', 'showBlog');
+    delData($con, $idBloga, 'id_blog', 'blogovi', 'showBlog');
 }
 ?>
 <div class="admin__content">
@@ -27,7 +27,7 @@ if (isset($_GET['id'])) {
             <?php
             while ($row = mysqli_fetch_assoc($res)) {
                 $id = $row['id_blog'];
-                $naslov = $row['blog_heading'];
+                $naslov = $row['naslov'];
             ?>
                 <tr>
                     <td><?php echo $id ?></td>

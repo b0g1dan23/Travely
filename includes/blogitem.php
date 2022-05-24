@@ -2,29 +2,29 @@
 function printBlog($res)
 {
     while ($row = mysqli_fetch_assoc($res)) {
-        $blog_heading = $row['blog_heading'];
-        $blog_date = $row['blog_date'];
-        $blog_content = $row['blog_content'];
-        $blog_bg = $row['blog_bg'];
+        $naslov = $row['naslov'];
+        $datum = $row['datum'];
+        $sadrzaj = $row['sadrzaj'];
+        $pozadina = $row['pozadina'];
 ?>
         <div class="blogs__item">
 
             <div class="popup">
-                <p class="p"><?php echo $blog_content ?></p>
+                <p class="p"><?php echo $sadrzaj ?></p>
             </div>
             <div class="blogs__img">
                 <div class="blogs__date">
-                    <a><?php echo $blog_date ?></a>
+                    <a><?php echo $datum ?></a>
                 </div>
-                <img src="<?php echo $blog_bg ?>" alt="Blog 1" />
+                <img src="<?php echo $pozadina ?>" alt="Blog 1" />
             </div>
             <div class="blogs__textcontent">
                 <div class="blogs__heading">
-                    <h2 class="h2"><?php echo $blog_heading ?></h2>
+                    <h2 class="h2"><?php echo $naslov ?></h2>
                 </div>
                 <div class="blogs__paragraph">
                     <p class="p">
-                        <?php echo $blog_content ?>
+                        <?php echo $sadrzaj ?>
                     </p>
                 </div>
                 <div class="blogs__button">
@@ -38,22 +38,22 @@ function printBlog($res)
 
 if (isset($_GET['tag'])) {
     $tag = $_GET['tag'];
-    $query = "SELECT * FROM `blogs` WHERE blog_tags LIKE '%$tag%'";
+    $query = "SELECT * FROM `blogovi` WHERE tagovi LIKE '%$tag%'";
     $res = mysqli_query($con, $query);
     printBlog($res);
 } else if (isset($_GET['cat_id'])) {
     $cat_id = $_GET['cat_id'];
-    $query = "SELECT blogs.* FROM `blogs_categories` inner JOIN blogs inner join categories ON blogs.id_blog = blogs_categories.id_blog AND categories.cat_id = blogs_categories.cat_id WHERE categories.cat_id = $cat_id";
+    $query = "SELECT blogovi.* FROM `blogoviKategorije` inner JOIN blogovi inner join kategorije ON blogovi.id_blog = blogoviKategorije.id_blog AND kategorije.cat_id = blogoviKategorije.cat_id WHERE kategorije.cat_id = $cat_id";
     $res = mysqli_query($con, $query);
     printBlog($res);
 } else if (isset($_GET['id_blog'])) {
     $id_blog = $_GET['id_blog'];
-    $query = "SELECT * FROM blogs WHERE id_blog = $id_blog";
+    $query = "SELECT * FROM blogovi WHERE id_blog = $id_blog";
     $res = mysqli_query($con, $query);
     printBlog($res);
 } else if (isset($_GET['blogHeading'])) {
     $blogHeading = $_GET['blogHeading'];
-    $query = "SELECT * FROM blogs WHERE blog_heading LIKE '%$blogHeading%'";
+    $query = "SELECT * FROM blogovi WHERE naslov LIKE '%$blogHeading%'";
     $res = mysqli_query($con, $query);
     if (mysqli_num_rows($res) > 0) {
         printBlog($res);
@@ -80,7 +80,7 @@ if (isset($_GET['tag'])) {
 <?php
     }
 } else {
-    $query = "SELECT * FROM blogs";
+    $query = "SELECT * FROM blogovi";
     $res = mysqli_query($con, $query);
     printBlog($res);
 }

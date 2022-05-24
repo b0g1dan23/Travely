@@ -5,7 +5,7 @@ include "../includes/dbconfig.php";
 
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
-    $queryInsert = "INSERT INTO `newsletter`(`email`) VALUES ('$email')";
+    $queryInsert = "INSERT INTO `poste`(`email`) VALUES ('$email')";
     $res = mysqli_query($con, $queryInsert);
     if ($res) {
 ?>
@@ -27,13 +27,13 @@ if (isset($_POST['submit'])) {
 <div class="admin__content">
     <div class="apartmani">
         <div class="apartmani__tekst">
-            <span class="span-bold">Newsletter</span>
+            <span class="span-bold">Poste</span>
         </div>
         <form action="addNewsletter" method="POST" class="apartmani__form">
             <div class="contact__input">
                 <input type="text" name="email" placeholder="Email" required />
             </div>
-            <button type="submit" name="submit" class="btn">Dodaj Newsletter</button>
+            <button type="submit" name="submit" class="btn">Dodaj Postu</button>
         </form>
 
     </div>

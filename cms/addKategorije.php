@@ -5,7 +5,7 @@ include "../includes/dbconfig.php";
 
 if (isset($_POST['submit'])) {
     $cat_title = $_POST['cat_title'];
-    $queryInsert = "INSERT INTO `categories`(`cat_title`) VALUES ('$cat_title')";
+    $queryInsert = "INSERT INTO `kategorije`(`cat_title`) VALUES ('$cat_title')";
     $res = mysqli_query($con, $queryInsert);
     if ($res) {
 ?>

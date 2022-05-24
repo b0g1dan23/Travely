@@ -4,12 +4,12 @@ include "includes/admin_side.php";
 include "../includes/dbconfig.php";
 include "funkcije.php";
 
-$query = "SELECT `cat_id`, `cat_title` FROM `categories`";
+$query = "SELECT `cat_id`, `cat_title` FROM `kategorije`";
 $res = mysqli_query($con, $query);
 
 if (isset($_GET['id'])) {
     $idKategorije = $_GET['id'];
-    delData($con, $idKategorije, 'cat_id', 'categories', 'showKategorije');
+    delData($con, $idKategorije, 'cat_id', 'kategorije', 'showKategorije');
 }
 ?>
 <div class="admin__content">

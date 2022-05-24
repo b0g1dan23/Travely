@@ -4,12 +4,12 @@ include "includes/admin_side.php";
 include "../includes/dbconfig.php";
 
 if (isset($_POST['submit'])) {
-    $blog_heading = $_POST['nazivBloga'];
+    $heading = $_POST['nazivBloga'];
     $imgBlog = $_POST['imgBlog'];
-    $tagsBlog = $_POST['tagsBlog'];
+    $tagoviBlog = $_POST['tagoviBlog'];
     $sadrzinaBloga = $_POST['sadrzinaBloga'];
     $trenutnoVreme = date('y-m-d');
-    $queryInsert = "INSERT INTO `blogs`(`blog_heading`, `blog_date`, `blog_content`, `blog_bg`, `blog_tags`) VALUES ('$blog_heading','$trenutnoVreme','$sadrzinaBloga','$imgBlog','$tagsBlog')";
+    $queryInsert = "INSERT INTO `blogovi`(`naslov`, `datum`, `sadrzaj`, `pozadina`, `tagovi`) VALUES ('$heading','$trenutnoVreme','$sadrzinaBloga','$imgBlog','$tagoviBlog')";
     $res = mysqli_query($con, $queryInsert);
     if ($res) {
 ?>
@@ -41,7 +41,7 @@ if (isset($_POST['submit'])) {
                 <input type="text" name="imgBlog" placeholder="Slika bloga" required />
             </div>
             <div class="contact__input">
-                <input type="text" name="tagsBlog" placeholder="Tagovi" required />
+                <input type="text" name="tagoviBlog" placeholder="Tagovi" required />
             </div>
             <div class="contact__input">
                 <textarea name="sadrzinaBloga" class="contact__textarea" placeholder="Sadrzina bloga" cols="30" rows="10"></textarea>

@@ -1,9 +1,3 @@
-<?php
-$query = 'SELECT * FROM apartmani WHERE idHotela = 1';
-$res = mysqli_query($con, $query);
-$room_query = 'SELECT * FROM apartmani WHERE idHotela != 1';
-$room_res = mysqli_query($con, $room_query);
-?>
 
 <div class="rooms__right">
     <div class="rooms__title">
@@ -38,6 +32,14 @@ $room_res = mysqli_query($con, $room_query);
     <div class="rooms__type">
         <ul class="rooms__type-ul">
             <li class="rooms__type-li">
+
+            <?php
+$query = 'SELECT * FROM apartmani WHERE idHotela = 1';
+$res = mysqli_query($con, $query);
+$room_query = 'SELECT * FROM apartmani WHERE idHotela != 1';
+$room_res = mysqli_query($con, $room_query);
+?>
+
                 <a href="?idHotela=1" class="rooms__type-a">&gt; Apartment</a>
                 <span class="span rooms__type-span">(<?php echo mysqli_num_rows($res) ?>)</span>
             </li>

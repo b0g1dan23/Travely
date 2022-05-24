@@ -5,7 +5,7 @@ include "../includes/dbconfig.php";
 
 if (isset($_GET['id'])) {
     $idKategorije = $_GET['id'];
-    $initQuery = "SELECT `cat_title` FROM `categories` WHERE cat_id = $idKategorije";
+    $initQuery = "SELECT `cat_title` FROM `kategorije` WHERE cat_id = $idKategorije";
     $initRes = mysqli_query($con, $initQuery);
     $row = mysqli_fetch_assoc($initRes);
 }
@@ -13,7 +13,7 @@ if (isset($_GET['id'])) {
 
 if (isset($_POST['btn_update'])) {
     $cat_title = $_POST['cat_title'];
-    $queryEdit = "UPDATE `categories` SET `cat_title`='$cat_title' WHERE cat_id =" . $_GET['id'];
+    $queryEdit = "UPDATE `kategorije` SET `cat_title`='$cat_title' WHERE cat_id =" . $_GET['id'];
     $res = mysqli_query($con, $queryEdit);
     if ($res) {
 ?>

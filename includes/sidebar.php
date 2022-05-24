@@ -20,13 +20,13 @@
 
                 use JetBrains\PhpStorm\ArrayShape;
 
-                $query = 'SELECT id_blog,blog_heading FROM blogs ';
-                $query .= 'ORDER BY blog_date DESC LIMIT 5';
+                $query = 'SELECT id_blog,naslov FROM blogovi ';
+                $query .= 'ORDER BY datum DESC LIMIT 5';
                 $res = mysqli_query($con, $query);
                 while ($row = mysqli_fetch_assoc($res)) {
-                    $blog_heading = $row['blog_heading'];
+                    $naslov = $row['naslov'];
                     $id_blog = $row['id_blog'];
-                    echo "<li class='blogs__li'><a href='?id_blog=$id_blog' class='blogs__a'>$blog_heading</a></li>";
+                    echo "<li class='blogs__li'><a href='?id_blog=$id_blog' class='blogs__a'>$naslov</a></li>";
                 }
                 ?>
             </ul>
@@ -40,7 +40,7 @@
         <div class="blogs__list">
             <ul class="blogs__ul">
                 <?php
-                $query = 'SELECT categories.cat_id, categories.cat_title FROM `blogs_categories` inner JOIN blogs inner join categories ON blogs.id_blog = blogs_categories.id_blog AND categories.cat_id = blogs_categories.cat_id GROUP BY(cat_id)';
+                $query = 'SELECT kategorije.cat_id, kategorije.cat_title FROM `blogoviKategorije` inner JOIN blogovi inner join kategorije ON blogovi.id_blog = blogoviKategorije.id_blog AND kategorije.cat_id = blogoviKategorije.cat_id GROUP BY(cat_id)';
                 $res = mysqli_query($con, $query);
                 while ($row = mysqli_fetch_assoc($res)) {
                     $cat_title = $row['cat_title'];
@@ -59,15 +59,15 @@
         <div class="blogs__list">
             <ul class="blogs__ul-random">
                 <?php
-                $query = 'SELECT blog_tags from blogs';
+                $query = 'SELECT tagovi from blogovi';
                 $res = mysqli_query($con, $query);
-                $tags = '';
+                $tagovi = '';
                 while ($row = mysqli_fetch_assoc($res)) {
-                    $tags .= $row['blog_tags'] . ',';
+                    $tagovi .= $row['tagovi'] . ',';
                 }
-                $tags = trim($tags);
-                $tags_arr = array_unique(preg_split("/\,/", $tags));
-                foreach ($tags_arr as $tag) {
+                $tagovi = trim($tagovi);
+                $tagovi_arr = array_unique(preg_split("/\,/", $tagovi));
+                foreach ($tagovi_arr as $tag) {
                     if ($tag) echo "<li class='blogs__li-random'><a href='?tag=$tag' class='blogs__a-random'>$tag</a></li>";
                 }
                 ?>

@@ -16,7 +16,7 @@
                 <li class="admin__li">Apartmani</li>
             </a>
             <a href="showNewsletter" class="span">
-                <li class="admin__li">Newsletter Prijave</li>
+                <li class="admin__li">Poste</li>
             </a>
             <a href="showBlog" class="span">
                 <li class="admin__li">Blogovi</li>

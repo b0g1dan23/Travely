@@ -6,7 +6,7 @@ include "../includes/dbconfig.php";
 if (isset($_POST['submit'])) {
     $idBloga = $_POST['idBloga'];
     $idKategorije = $_POST['idKategorije'];
-    $queryInsert = "INSERT INTO `blogs_categories`(`id_blog`, `cat_id`) VALUES ('$idBloga','$idKategorije')";
+    $queryInsert = "INSERT INTO `blogoviKategorije`(`id_blog`, `cat_id`) VALUES ('$idBloga','$idKategorije')";
     $res = mysqli_query($con, $queryInsert);
     if ($res) {
 ?>
@@ -37,13 +37,13 @@ if (isset($_POST['submit'])) {
                 </label>
                 <select name="idBloga" class="apartmani__select">
                     <?php
-                    $query = 'SELECT `id_blog`, `blog_heading` FROM `blogs`';
+                    $query = 'SELECT `id_blog`, `naslov` FROM `blogovi`';
                     $res = mysqli_query($con, $query);
                     while ($row = mysqli_fetch_assoc($res)) {
                         $id_blog = $row['id_blog'];
-                        $blog_heading = $row['blog_heading'];
+                        $naslov = $row['naslov'];
                     ?>
-                        <option value="<?php echo $id_blog ?>"><?php echo $blog_heading ?></option>
+                        <option value="<?php echo $id_blog ?>"><?php echo $naslov ?></option>
                     <?php } ?>
                 </select>
             </div>
@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
                 </label>
                 <select name="idKategorije" class="apartmani__select">
                     <?php
-                    $query = 'SELECT `cat_id`, `cat_title` FROM `categories`';
+                    $query = 'SELECT `cat_id`, `cat_title` FROM `kategorije`';
                     $res = mysqli_query($con, $query);
                     while ($row = mysqli_fetch_assoc($res)) {
                         $cat_id = $row['cat_id'];

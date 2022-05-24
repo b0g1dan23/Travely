@@ -5,14 +5,14 @@ include "includes/dbconfig.php";
 if (isset($_POST['email'])) {
     $email = $_POST['email'];
     $email = mysqli_real_escape_string($con, $email);
-    $queryChecker = "SELECT `email` FROM `newsletter` WHERE email = '$email' ";
+    $queryChecker = "SELECT `email` FROM `poste` WHERE email = '$email' ";
     $resChecker = mysqli_query($con, $queryChecker);
     $mes = 'Thank You!';
     $mesContent = 'Thank you for submitting your email in our newsletter, we will notify you if some good deals appear!';
     if (mysqli_num_rows($resChecker) >= 1) {
         $mes = 'Already there!';
     } else {
-        $queryWriter = "INSERT INTO `newsletter`(`email`) VALUES ('$email')";
+        $queryWriter = "INSERT INTO `poste`(`email`) VALUES ('$email')";
         $resWriter = mysqli_query($con, $queryWriter);
     }
 }

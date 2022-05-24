@@ -4,13 +4,13 @@ include "includes/admin_side.php";
 include "../includes/dbconfig.php";
 include "funkcije.php";
 
-$query = "SELECT blogs.id_blog, categories.cat_id, blogs.blog_heading,categories.cat_title FROM `blogs_categories` inner JOIN blogs inner join categories ON blogs.id_blog = blogs_categories.id_blog AND categories.cat_id = blogs_categories.cat_id;";
+$query = "SELECT blogovi.id_blog, kategorije.cat_id, blogovi.naslov,kategorije.cat_title FROM `blogoviKategorije` inner JOIN blogovi inner join kategorije ON blogovi.id_blog = blogoviKategorije.id_blog AND kategorije.cat_id = blogoviKategorije.cat_id;";
 $res = mysqli_query($con, $query);
 
 if (isset($_GET['id_blog']) && isset($_GET['cat_id'])) {
     $idBloga = $_GET['id_blog'];
     $idKategorije = $_GET['cat_id'];
-    $delQuery = "DELETE FROM `blogs_categories` WHERE id_blog = $idBloga AND cat_id = $idKategorije";
+    $delQuery = "DELETE FROM `blogoviKategorije` WHERE id_blog = $idBloga AND cat_id = $idKategorije";
     $res = mysqli_query($con, $delQuery);
     if ($res) {
 ?>
@@ -46,10 +46,10 @@ if (isset($_GET['id_blog']) && isset($_GET['cat_id'])) {
                 $cat_id = $row['cat_id'];
                 $id_blog = $row['id_blog'];
                 $cat_title = $row['cat_title'];
-                $blog_heading = $row['blog_heading'];
+                $naslov = $row['naslov'];
             ?>
                 <tr>
-                    <td><?php echo $blog_heading ?></td>
+                    <td><?php echo $naslov ?></td>
                     <td><?php echo $cat_title ?></td>
                     <td class="admin__td"><a onclick="window.location.href = `?id_blog=${<?php echo $id_blog ?>}&cat_id=${<?php echo $cat_id ?>}`" href="#" class="admin__akcije">Obrisi</a></td>
                 </tr>
